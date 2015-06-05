@@ -1,0 +1,12 @@
+attributes:
+  metadata:
+    restrictions:
+      - condition: "settings:zabbix_monitoring.metadata.enabled == false"
+        action: disable
+        message: "This plugin requires Zabbix plugin"
+  community:
+    value: "public"
+    label: "SNMP community"
+    description: "SNMP community for traps authorization"
+    weight: 10
+    type: "password"

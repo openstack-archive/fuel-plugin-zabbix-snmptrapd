@@ -1,0 +1,5 @@
+.build/
+*.noarch.rpm
+repositories/centos/*.rpm
+repositories/ubuntu/*.deb
+deployment_scripts/puppet/modules/snmp
