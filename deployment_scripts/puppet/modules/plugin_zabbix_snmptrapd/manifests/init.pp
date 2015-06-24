@@ -36,7 +36,7 @@ class plugin_zabbix_snmptrapd {
     group   => 'root',
     mode    => '0755',
     source  => "puppet:///modules/plugin_zabbix_snmptrapd/initscripts/${service_name}",
-    require => Class['snmp'],
+    require => Package['snmpd'],
     notify  => Service[$service_name],
   }
 
