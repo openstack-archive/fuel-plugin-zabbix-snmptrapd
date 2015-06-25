@@ -9,6 +9,7 @@ SNMP trap daemon for Zabbix plugin.
 .. include:: content/terms.rst
 .. include:: content/description.rst
 .. include:: content/installation.rst
+.. include:: content/removal.rst
 .. include:: content/guide.rst
 .. include:: content/appendix.rst
 .. include:: content/licenses.rst

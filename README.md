@@ -51,6 +51,23 @@ To install SNMP trap daemon plugin, follow these steps:
         1  | zabbix_monitoring | 1.0.0   | 2.0.0
         2  | zabbix_snmptrapd  | 1.0.0   | 2.0.0
 
+SNMP trap daemon plugin removal
+-------------------------------
+
+To uninstall SNMP trap daemon plugin, follow these steps:
+
+1. Delete all Environments in which SNMP trap daemon plugin has been enabled.
+2. Uninstall the plugin:
+
+        # fuel plugins --remove zabbix_snmptrapd==1.0.0
+
+3. Check if the plugin was uninstalled successfully:
+
+        # fuel plugins
+        id | name              | version | package_version
+        ---|-------------------|---------|----------------
+        1  | zabbix_monitoring | 1.0.0   | 2.0.0
+
 For more information and instructions, see the SNMP trap daemon plugin Guide
 in the [Fuel Plugins Catalog](https://software.mirantis.com/fuel-plugins)
 
