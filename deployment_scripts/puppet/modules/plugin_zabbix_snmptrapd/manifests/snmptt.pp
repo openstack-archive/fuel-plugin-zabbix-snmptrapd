@@ -27,9 +27,10 @@ class plugin_zabbix_snmptrapd::snmptt {
   }
 
   service { 'snmptt':
-    ensure   => running,
-    enable   => true,
-    require  => Package['snmptt'],
+    ensure    => running,
+    enable    => true,
+    hasstatus => false,
+    require   => Package['snmptt'],
   }
 
   file { '/etc/snmp/snmptt.ini':

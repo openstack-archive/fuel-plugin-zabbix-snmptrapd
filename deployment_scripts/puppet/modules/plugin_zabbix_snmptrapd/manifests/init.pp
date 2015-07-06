@@ -18,6 +18,8 @@ class plugin_zabbix_snmptrapd {
   include plugin_zabbix_snmptrapd::params
 
   $service_name    = $plugin_zabbix_snmptrapd::params::service_name
+  $package_name    = $plugin_zabbix_snmptrapd::params::package_name 
+ 
   $server_ip       = hiera('management_vip')
   $plugin_settings = hiera('zabbix_snmptrapd')
 
@@ -36,7 +38,7 @@ class plugin_zabbix_snmptrapd {
     group   => 'root',
     mode    => '0755',
     source  => "puppet:///modules/plugin_zabbix_snmptrapd/initscripts/${service_name}",
-    require => Class['snmp'],
+    require => Package[$package_name],
     notify  => Service[$service_name],
   }
 
