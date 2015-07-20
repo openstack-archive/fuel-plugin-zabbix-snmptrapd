@@ -1,0 +1,9 @@
+Verified+2: Jenkins
+Code-Review+2: Bartosz Kupidura <bkupidura@mirantis.com>
+Workflow+1: Bartosz Kupidura <bkupidura@mirantis.com>
+Code-Review+1: Dmitry Kalashnik <dkalashnik@mirantis.com>
+Submitted-by: Jenkins
+Submitted-at: Mon, 20 Jul 2015 12:16:41 +0000
+Reviewed-on: https://review.openstack.org/198706
+Project: stackforge/fuel-plugin-zabbix-snmptrapd
+Branch: refs/heads/master
