@@ -13,23 +13,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 #
-class plugin_zabbix_snmptrapd::params {
+class plugin_zabbix_snmptrapd::primary_controller {
 
-  case $::osfamily {
-    'Debian': {
-      $service_name = 'snmpd'
-      $package_name = 'snmpd'
-    }
-    'RedHat': {
-      $service_name = 'snmptrapd'
-      $package_name = 'net-snmp'
-    }
-    default: {
-      fail("unsuported osfamily ${::osfamily}, currently Debian and RedHat are the only supported platforms")
-    }
+  include plugin_zabbix_snmptrapd::params
+
+  cs_group { 'g_zabbix':
+    primitives => [$plugin_zabbix_snmptrapd::params::vip_cs_name, $plugin_zabbix_snmptrapd::params::zabbix_cs_name],
   }
-
-  $zabbix_cs_name = 'p_zabbix-server'
-  $vip_cs_name = 'vip__management'
 
 }
