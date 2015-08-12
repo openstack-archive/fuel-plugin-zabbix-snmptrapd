@@ -42,12 +42,14 @@ IP_BINARY="/sbin/ip"
 
 SNMPD_BINARY="/usr/sbin/snmpd"
 SNMPD_PID="/run/snmpd.pid"
+#run snmpd process in the following namespace:
 SNMPDNS="haproxy"
 SNMPDRUN="yes"
 SNMPDOPTS="-Lsd -Lf /dev/null -p $SNMPD_PID"
 
 TRAPD_BINARY="/usr/sbin/snmptrapd"
 TRAPD_PID="/run/snmptrapd.pid"
+#run snmptrapd process in the following namespace:
 TRAPDNS="haproxy"
 TRAPDRUN="no"
 TRAPDOPTS="-Lsd -p $TRAPD_PID"

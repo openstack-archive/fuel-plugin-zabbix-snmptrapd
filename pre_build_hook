@@ -25,9 +25,9 @@ function download {
     done
 }
 
-download rpm http://mirror.centos.org/centos/6/updates/x86_64/Packages/net-snmp-5.5-50.el6_6.1.x86_64.rpm \
-             http://mirror.centos.org/centos/6/updates/x86_64/Packages/net-snmp-libs-5.5-50.el6_6.1.x86_64.rpm \
-             http://mirror.centos.org/centos/6/updates/x86_64/Packages/net-snmp-perl-5.5-50.el6_6.1.x86_64.rpm \
+download rpm http://mirror.centos.org/centos/6/os/x86_64/Packages/net-snmp-5.5-54.el6.x86_64.rpm \
+             http://mirror.centos.org/centos/6/os/x86_64/Packages/net-snmp-libs-5.5-54.el6.x86_64.rpm \
+             http://mirror.centos.org/centos/6/os/x86_64/Packages/net-snmp-perl-5.5-54.el6.x86_64.rpm \
              http://mirror.centos.org/centos/6/os/x86_64/Packages/perl-Digest-HMAC-1.01-22.el6.noarch.rpm \
              http://mirror.centos.org/centos/6/os/x86_64/Packages/perl-Digest-SHA1-2.12-2.el6.x86_64.rpm \
              http://mirror.centos.org/centos/6/os/x86_64/Packages/perl-IO-stringy-2.110-10.1.el6.noarch.rpm \
