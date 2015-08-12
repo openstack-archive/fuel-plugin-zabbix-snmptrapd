@@ -17,19 +17,28 @@ class plugin_zabbix_snmptrapd {
 
   include plugin_zabbix_snmptrapd::params
 
-  $service_name    = $plugin_zabbix_snmptrapd::params::service_name
-  $package_name    = $plugin_zabbix_snmptrapd::params::package_name
+  $service_name     = $plugin_zabbix_snmptrapd::params::service_name
+  $package_name     = $plugin_zabbix_snmptrapd::params::package_name
 
-  $server_ip       = hiera('management_vip')
-  $plugin_settings = hiera('zabbix_snmptrapd')
+  $plugin_settings  = hiera('zabbix_snmptrapd')
+
+  $network_metadata = hiera('network_metadata')
+  $server_ip        = $network_metadata['vips']['zabbix_vip_management']['ipaddr']
+  $server_port      = '162'
 
   class { 'snmp':
-    snmptrapdaddr       => ["udp:${server_ip}:162"],
+    snmptrapdaddr       => ["udp:${server_ip}:${server_port}"],
     ro_community        => $plugin_settings['community'],
     service_ensure      => 'stopped',
     trap_service_ensure => 'running',
     trap_service_enable => true,
     trap_handlers       => ['default /usr/sbin/snmptthandler'],
+  }
+
+  firewall { '998 snmptrapd':
+    proto     => 'udp',
+    action    => 'accept',
+    port      => $server_port,
   }
 
   file { "/etc/init.d/${service_name}":

@@ -40,7 +40,7 @@
 # source function library
 . /etc/init.d/functions
 
-NS="haproxy"
+NS=""
 OPTIONS="-Lsd -p /var/run/snmptrapd.pid"
 if [ -e /etc/sysconfig/snmptrapd ]; then
   . /etc/sysconfig/snmptrapd
