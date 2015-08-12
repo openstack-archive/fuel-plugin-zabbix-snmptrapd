@@ -29,7 +29,4 @@ class plugin_zabbix_snmptrapd::params {
     }
   }
 
-  $zabbix_cs_name = 'p_zabbix-server'
-  $vip_cs_name = 'vip__management'
-
 }

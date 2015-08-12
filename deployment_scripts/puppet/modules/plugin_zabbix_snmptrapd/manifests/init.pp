@@ -17,14 +17,17 @@ class plugin_zabbix_snmptrapd {
 
   include plugin_zabbix_snmptrapd::params
 
-  $service_name    = $plugin_zabbix_snmptrapd::params::service_name
-  $package_name    = $plugin_zabbix_snmptrapd::params::package_name
+  $service_name     = $plugin_zabbix_snmptrapd::params::service_name
+  $package_name     = $plugin_zabbix_snmptrapd::params::package_name
 
-  $server_ip       = hiera('management_vip')
-  $plugin_settings = hiera('zabbix_snmptrapd')
+  $plugin_settings  = hiera('zabbix_snmptrapd')
+
+  $network_metadata = hiera('network_metadata')
+  $server_ip        = $network_metadata['vips']['zabbix_vip_management']['ipaddr']
+  $server_port      = '162'
 
   class { 'snmp':
-    snmptrapdaddr       => ["udp:${server_ip}:162"],
+    snmptrapdaddr       => ["udp:${server_ip}:${server_port}"],
     ro_community        => $plugin_settings['community'],
     service_ensure      => 'stopped',
     trap_service_ensure => 'running',
@@ -32,15 +35,25 @@ class plugin_zabbix_snmptrapd {
     trap_handlers       => ['default /usr/sbin/snmptthandler'],
   }
 
-  file { "/etc/init.d/${service_name}":
-    ensure  => present,
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0755',
-    source  => "puppet:///modules/plugin_zabbix_snmptrapd/initscripts/${service_name}",
-    require => Package[$package_name],
-    notify  => Service[$service_name],
+  firewall { '998 snmptrapd':
+    proto     => 'udp',
+    action    => 'accept',
+    port      => $server_port,
   }
+
+  # The following resource overwrites default initscript for snmptrapd.
+  # Version provided by the plugin supports namespaces.
+  # If there is a need to run snmptrad in a specific namespace,
+  # uncomment the following resource and put the correct namespace in the file.
+  #file { "/etc/init.d/${service_name}":
+  #  ensure  => present,
+  #  owner   => 'root',
+  #  group   => 'root',
+  #  mode    => '0755',
+  #  source  => "puppet:///modules/plugin_zabbix_snmptrapd/initscripts/${service_name}",
+  #  require => Package[$package_name],
+  #  notify  => Service[$service_name],
+  #}
 
   class { 'plugin_zabbix_snmptrapd::snmptt':
     require => Class['snmp'],
