@@ -7,12 +7,13 @@ Environment configuration
 
 1. Create an environment. For more information about environment creation, see
    `Mirantis OpenStack User Guide <http://docs.mirantis.com/openstack/fuel
-   /fuel-6.1/user-guide.html#create-a-new-openstack-environment>`_.
+   /fuel-7.0/user-guide.html#create-a-new-openstack-environment>`_.
 2. Enable and configure Zabbix plugin for Fuel. For instructions, see Zabbix
    Plugin Guide in the `Fuel Plugins Catalog <https://www.mirantis.com
    /products/openstack-drivers-and-plugins/fuel-plugins/>`_.
-3. Open *Settings* tab of the Fuel web UI and scroll the page down. Select the
-   plugin checkbox and set *SNMP community* parameter:
+3. Open *Settings* tab of the Fuel web UI and scroll the page down. On the left
+   choose *SNMP trap daemon for Zabbix plugin*, select the plugin checkbox and
+   set *SNMP community* parameter:
 
    .. image:: images/settings.png
 
@@ -22,15 +23,15 @@ Environment configuration
 4. Adjust other environment settings to your requirements and deploy the
    environment. For more information, see
    `Mirantis OpenStack User Guide <http://docs.mirantis.com/openstack/fuel
-   /fuel-6.1/user-guide.html#create-a-new-openstack-environment>`_.
+   /fuel-7.0/user-guide.html#create-a-new-openstack-environment>`_.
 
 Environment validation
 ======================
 
 After a successful deployment, all Controller Nodes should have the following:
 
-1. snmptrapd daemon running and listening on UDP/162 port on the VIP management
-   address.
+1. snmptrapd daemon running and listening on UDP/162 port on the VIP address
+   reserved for Zabbix.
 2. snmptrapd daemon configured to pass all SNMP traps to snmptt handler.
 3. snmptt daemon running which parse SNMP traps and stores them in a log file
    in a format accepted by Zabbix.
@@ -41,7 +42,7 @@ To test if everything is installed and configured properly, follow these steps:
 
 1. Generate a test SNMP trap running following command from any node::
 
-       [root@node-46 ~]# snmptrap -v 2c -c <SNMP_community> <management_VIP_address> "" .1.3.6.1.4.1.8072.2.3.0.1
+       [root@node-46 ~]# snmptrap -v 2c -c <SNMP_community> <zabbix_VIP_address> "" .1.3.6.1.4.1.8072.2.3.0.1
 
    where:
 
@@ -51,15 +52,17 @@ To test if everything is installed and configured properly, follow these steps:
 
    .. image:: images/settings.png
 
-   *<management_VIP_address>*
+   *<zabbix_VIP_address>*
 
        If you don’t know the address, run the following command on any node::
 
-           [root@node-46 ~]# grep management_vip /etc/astute.yaml
+           [root@node-46 ~]# grep -A2 ^zabbix_vip_management /etc/astute.yaml
 
        You should get the required VIP in the output::
 
-           management_vip: 192.168.0.1
+           zabbix_vip_management:
+             network_role: zabbix
+             ipaddr: 192.168.0.1
 
 
 2. After several seconds of running the snmptrap command you should see a line
