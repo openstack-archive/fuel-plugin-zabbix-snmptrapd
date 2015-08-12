@@ -5,7 +5,7 @@ SNMP trap daemon for Zabbix plugin
 This plugin extends Zabbix plugin functionality by adding ability to receive
 SNMP traps from management network and pass them to Zabbix. For more
 information about networks, see the `Logical Networks <https://
-docs.mirantis.com/openstack/fuel/fuel-6.1/reference-architecture.html
+docs.mirantis.com/openstack/fuel/fuel-7.0/reference-architecture.html
 #logical-networks>`_ section of MOS documentation. The plugins installs
 snmptrapd daemon for receiving and snmptt software for parsing and passing
 traps to Zabbix. This plugin does not provide any additional features from user
@@ -20,7 +20,7 @@ Requirements
 ====================== ===============
 Requirement            Version/Comment
 ====================== ===============
-Fuel                   6.1
-Zabbix plugin for Fuel 1.0.0
+Fuel                   7.0
+Zabbix plugin for Fuel 2.0.0
 ====================== ===============
 
