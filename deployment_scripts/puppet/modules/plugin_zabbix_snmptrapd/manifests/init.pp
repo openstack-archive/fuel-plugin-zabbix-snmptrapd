@@ -45,15 +45,15 @@ class plugin_zabbix_snmptrapd {
   # Version provided by the plugin supports namespaces.
   # If there is a need to run snmptrad in a specific namespace,
   # uncomment the following resource and put the correct namespace in the file.
-  #file { "/etc/init.d/${service_name}":
-  #  ensure  => present,
-  #  owner   => 'root',
-  #  group   => 'root',
-  #  mode    => '0755',
-  #  source  => "puppet:///modules/plugin_zabbix_snmptrapd/initscripts/${service_name}",
-  #  require => Package[$package_name],
-  #  notify  => Service[$service_name],
-  #}
+  file { "/etc/init.d/${service_name}":
+    ensure  => present,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0755',
+    source  => "puppet:///modules/plugin_zabbix_snmptrapd/initscripts/${service_name}",
+    require => Package[$package_name],
+    notify  => Service[$service_name],
+  }
 
   class { 'plugin_zabbix_snmptrapd::snmptt':
     require => Class['snmp'],
