@@ -23,7 +23,7 @@ class plugin_zabbix_snmptrapd {
   $plugin_settings  = hiera('zabbix_snmptrapd')
 
   $network_metadata = hiera('network_metadata')
-  $server_ip        = $network_metadata['vips']['zabbix_vip_management']['ipaddr']
+  $server_ip        = $network_metadata['vips']['zbx_vip_mgmt']['ipaddr']
   $server_port      = '162'
 
   class { 'snmp':
