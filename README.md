@@ -48,7 +48,7 @@ To install SNMP trap daemon plugin, follow these steps:
         # fuel plugins
         id | name              | version | package_version
         ---|-------------------|---------|----------------
-        1  | zabbix_monitoring | 2.0.0   | 3.0.0
+        1  | zabbix_monitoring | 2.5.0   | 3.0.0
         2  | zabbix_snmptrapd  | 1.0.0   | 2.0.0
 
 For more information and instructions, see the SNMP trap daemon plugin Guide
@@ -62,8 +62,8 @@ This is the first release of the plugin.
 Contributors
 ------------
 
-Dmitry Klenov <dklenov@mirantis.com> (PM)  
-Piotr Misiak <pmisiak@mirantis.com> (developer)  
-Szymon Bańka <sbanka@mirantis.com> (developer)  
-Bartosz Kupidura <bkupidura@mirantis.com> (developer) 
-Alexander Zatserklyany <azatserklyany@mirantis.com> (QA engineer)  
+Dmitry Klenov <dklenov@mirantis.com> (PM)
+Piotr Misiak <pmisiak@mirantis.com> (developer)
+Szymon Bańka <sbanka@mirantis.com> (developer)
+Bartosz Kupidura <bkupidura@mirantis.com> (developer)
+Alexander Zatserklyany <azatserklyany@mirantis.com> (QA engineer)
