@@ -21,6 +21,6 @@ Requirements
 Requirement            Version/Comment
 ====================== ===============
 Fuel                   7.0
-Zabbix plugin for Fuel 2.0.0
+Zabbix plugin for Fuel 2.5.0
 ====================== ===============
 
