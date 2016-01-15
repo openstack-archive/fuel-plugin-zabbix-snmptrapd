@@ -1,3 +1,7 @@
+*.swp
+*~
+.#*
+\#*#
 .build/
 *.noarch.rpm
 repositories/centos/*.rpm
