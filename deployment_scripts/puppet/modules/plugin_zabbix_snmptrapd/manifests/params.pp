@@ -29,4 +29,10 @@ class plugin_zabbix_snmptrapd::params {
     }
   }
 
+  $zabbix_base_conf_dir        = '/etc/zabbix'
+  $zabbix_extra_conf_subdir    = 'conf.d'
+  $zabbix_extra_conf_dir       = "${zabbix_base_conf_dir}/${zabbix_extra_conf_subdir}"
+  $server_snmp_config          = "${zabbix_extra_conf_dir}/zabbix_snmp.conf"
+  $server_snmp_config_template = 'plugin_zabbix_snmptrapd/zabbix_snmp.conf.erb'
+
 }

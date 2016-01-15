@@ -15,17 +15,9 @@
 #
 class plugin_zabbix_snmptrapd::zabbix {
 
-  file_line { 'enable SNMPTrapper in Zabbix':
-    path     => '/etc/zabbix/zabbix_server.conf',
-    match    => 'StartSNMPTrapper',
-    line     => 'StartSNMPTrapper=1',
-    notify   => Service['p_zabbix-server'],
-  }
-
-  file_line { 'set SNMPTrapperFile in Zabbix':
-    path     => '/etc/zabbix/zabbix_server.conf',
-    match    => 'SNMPTrapperFile',
-    line     => 'SNMPTrapperFile=/var/log/snmptt/snmptt.log',
+  file { $plugin_zabbix_snmptrapd::params::server_snmp_config:
+    ensure  => present,
+    content => template($plugin_zabbix_snmptrapd::params::server_snmp_config_template),
     notify   => Service['p_zabbix-server'],
   }
 
