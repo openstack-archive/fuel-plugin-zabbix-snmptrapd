@@ -21,7 +21,7 @@ class plugin_zabbix_snmptrapd::zabbix {
     group   => 'root',
     mode    => '0644',
     content => template($plugin_zabbix_snmptrapd::params::server_snmp_config_template),
-    notify   => Service['p_zabbix-server'],
+    notify  => Service['p_zabbix-server'],
   }
 
   service { 'p_zabbix-server':

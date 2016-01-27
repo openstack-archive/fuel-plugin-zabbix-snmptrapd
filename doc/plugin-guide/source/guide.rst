@@ -15,7 +15,7 @@ Environment configuration
    choose *SNMP trap daemon for Zabbix plugin*, select the plugin checkbox and
    set *SNMP community* parameter:
 
-   .. image:: images/settings.png
+   .. image:: ../images/settings.png
       :width: 100%
 
    You could see default value by clicking on the eye icon. It is highly
@@ -52,7 +52,7 @@ To test if everything is installed and configured properly, follow these steps:
 
        It is set in the SNMP trap daemon for Zabbix plugin Settings in Fuel UI:
 
-   .. image:: images/settings.png
+   .. image:: ../images/settings.png
       :width: 100%
 
    *<zabbix_VIP_address>*

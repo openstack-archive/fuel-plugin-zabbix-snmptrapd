@@ -34,30 +34,30 @@ class plugin_zabbix_snmptrapd::snmptt {
   }
 
   file { '/etc/snmp/snmptt.ini':
-    ensure   => present,
-    mode     => '0644',
-    owner    => 'root',
-    group    => 'root',
-    source   => 'puppet:///modules/plugin_zabbix_snmptrapd/snmptt.ini',
-    require  => Package['snmptt'],
-    notify   => Service['snmptt'],
+    ensure  => present,
+    mode    => '0644',
+    owner   => 'root',
+    group   => 'root',
+    source  => 'puppet:///modules/plugin_zabbix_snmptrapd/snmptt.ini',
+    require => Package['snmptt'],
+    notify  => Service['snmptt'],
   }
 
   file { '/etc/snmp/snmptt.conf':
-    ensure   => present,
-    mode     => '0644',
-    owner    => 'root',
-    group    => 'root',
-    source   => 'puppet:///modules/plugin_zabbix_snmptrapd/snmptt.conf',
-    require  => Package['snmptt'],
-    notify   => Service['snmptt'],
+    ensure  => present,
+    mode    => '0644',
+    owner   => 'root',
+    group   => 'root',
+    source  => 'puppet:///modules/plugin_zabbix_snmptrapd/snmptt.conf',
+    require => Package['snmptt'],
+    notify  => Service['snmptt'],
   }
 
   file_line { 'in logrotate disable compressing of snmptt logfiles':
-    path     => '/etc/logrotate.d/snmptt',
-    match    => 'compress',
-    line     => 'nocompress',
-    require  => Package['snmptt'],
+    path    => '/etc/logrotate.d/snmptt',
+    match   => 'compress',
+    line    => 'nocompress',
+    require => Package['snmptt'],
   }
 
 }
