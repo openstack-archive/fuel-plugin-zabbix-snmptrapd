@@ -1,3 +1,7 @@
+Gemfile.lock
+.bundle/
+.bundled_gems/
+.tox/
 .build/
 *.noarch.rpm
 repositories/centos/*.rpm
