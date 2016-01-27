@@ -36,9 +36,9 @@ class plugin_zabbix_snmptrapd {
   }
 
   firewall { '998 snmptrapd':
-    proto     => 'udp',
-    action    => 'accept',
-    port      => $server_port,
+    proto  => 'udp',
+    action => 'accept',
+    port   => $server_port,
   }
 
   # The following resource overwrites default initscript for snmptrapd.
