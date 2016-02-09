@@ -2,11 +2,11 @@
 name: zabbix_snmptrapd
 title: SNMP trap daemon for Zabbix plugin
 # Plugin version
-version: 1.0.0
+version: 1.0.1
 # Description
 description: Gives ability to receive SNMP traps and pass them to Zabbix.
 # Required fuel version
-fuel_version: ['7.0']
+fuel_version: ['7.0', '8.0']
 # Groups
 groups: ['monitoring']
 # Licenses
@@ -14,7 +14,7 @@ licenses: ['Apache License, Version 2.0']
 # Homepage
 homepage: 'https://github.com/stackforge/fuel-plugin-zabbix-snmptrapd'
 # Authors
-authors: ['Dmitry Klenov <dklenov@mirantis.com>', 'Piotr Misiak <pmisiak@mirantis.com>', 'Szymon Banka <sbanka@mirantis.com>', 'Bartosz Kupidura <bkupidura@mirantis.com>', 'Alexander Zatserklyany <azatserklyany@mirantis.com>']
+authors: ['Dmitry Klenov <dklenov@mirantis.com>', 'Piotr Misiak <pmisiak@mirantis.com>', 'Szymon Banka <sbanka@mirantis.com>', 'Bartosz Kupidura <bkupidura@mirantis.com>', 'Alexander Zatserklyany <azatserklyany@mirantis.com>', 'Swann Croiset <scroiset@mirantis.com>', 'Olivier Bourdon <obourdon@mirantis.com>']
 
 # The plugin is compatible with releases in the list
 releases:
@@ -25,6 +25,16 @@ releases:
     repository_path: repositories/ubuntu
   - os: centos
     version: 2015.1.0-7.0
+    mode: ['ha']
+    deployment_scripts_path: deployment_scripts/
+    repository_path: repositories/centos
+  - os: ubuntu
+    version: 2015.1.0-8.0
+    mode: ['ha']
+    deployment_scripts_path: deployment_scripts/
+    repository_path: repositories/ubuntu
+  - os: centos
+    version: 2015.1.0-8.0
     mode: ['ha']
     deployment_scripts_path: deployment_scripts/
     repository_path: repositories/centos
