@@ -8,7 +8,7 @@ Zabbix
     network services,servers, and other network hardware.
 
 VIP
-    Virtual IP Adress.
+    Virtual IP Address.
 
 SNMP trap
     A message which is send from agent (for example, from network switch) to
