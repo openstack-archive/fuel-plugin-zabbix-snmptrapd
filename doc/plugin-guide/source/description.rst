@@ -1,6 +1,6 @@
-==================================
-SNMP trap daemon for Zabbix plugin
-==================================
+===============================================
+Guide to the SNMP trap daemon for Zabbix plugin
+===============================================
 
 This plugin extends Zabbix plugin functionality by adding ability to receive
 SNMP traps from management network and pass them to Zabbix. For more

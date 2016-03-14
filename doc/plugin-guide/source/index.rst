@@ -1,17 +1,18 @@
-***********************************************
-Guide to the SNMP trap daemon for Zabbix plugin
-***********************************************
-
-This document provides instructions for installing, configuring and using
-SNMP trap daemon for Zabbix plugin.
+=======================================================================
+Welcome to The Zabbix SNMP trap daemon plugin for Fuel's documentation!
+=======================================================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
-   terms.rst
-   description.rst
-   installation.rst
-   guide.rst
-   appendix.rst
-   licenses.rst
+   revisionhistory
+   purpose
+   keyterms
+   description
+   changelog
+   limitations
+   installation
+   guide
+   troubleshooting
+   appendix
 
