@@ -1,6 +1,6 @@
-==================================
-SNMP trap daemon for Zabbix plugin
-==================================
+===============================================
+Guide to the SNMP trap daemon for Zabbix plugin
+===============================================
 
 This plugin extends Zabbix plugin functionality by adding ability to receive
 SNMP traps from management network and pass them to Zabbix. For more
@@ -20,7 +20,7 @@ Requirements
 ====================== ===============
 Requirement            Version/Comment
 ====================== ===============
-Fuel                   7.0
+Fuel                   7.0 and 8.0
 Zabbix plugin for Fuel 2.5.0
 ====================== ===============
 
