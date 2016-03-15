@@ -1,8 +1,8 @@
 attributes:
   metadata:
     restrictions:
-      - condition: "settings:zabbix_monitoring == null or settings:zabbix_monitoring.metadata.enabled == false"
-        action: disable
+      - condition: "settings:zabbix_monitoring == null or settings:zabbix_monitoring.metadata.enabled == false or cluster:net_provider != 'neutron'"
+        action: "hide"
         message: "This plugin requires Zabbix plugin"
         strict: false
   community:

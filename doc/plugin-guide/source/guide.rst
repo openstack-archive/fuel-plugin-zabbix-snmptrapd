@@ -18,8 +18,6 @@ Known problems
 
 - `#1529643 <https://bugs.launchpad.net/fuel-plugins/+bug/1529643>`_:
   Zabbix snmptrapd: Service "snmptt" was restarted after executing of task "upload\_core\_repos"
-- `#1538617 <https://bugs.launchpad.net/fuel-plugins/+bug/1538617>`_:
-  Cross-plugin display restrictions for some plugins prevent Settings tab from opening.
 - See Zabbix Plugin for Fuel Documentation for additional problems
 
 Environment configuration
