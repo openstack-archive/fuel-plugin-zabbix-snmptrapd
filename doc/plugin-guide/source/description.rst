@@ -20,7 +20,7 @@ Requirements
 ====================== ===============
 Requirement            Version/Comment
 ====================== ===============
-Fuel                   7.0
+Fuel                   7.0 and 8.0
 Zabbix plugin for Fuel 2.5.0
 ====================== ===============
 
