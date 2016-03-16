@@ -1,0 +1,8 @@
+Code-Review+2: Olivier Bourdon <obourdon@mirantis.com>
+Workflow+1: Olivier Bourdon <obourdon@mirantis.com>
+Verified+2: Jenkins
+Submitted-by: Jenkins
+Submitted-at: Wed, 16 Mar 2016 16:44:02 +0000
+Reviewed-on: https://review.openstack.org/292404
+Project: openstack/fuel-plugin-zabbix-snmptrapd
+Branch: refs/heads/master
