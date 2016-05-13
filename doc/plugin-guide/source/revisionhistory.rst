@@ -20,5 +20,8 @@ Version Revision date Editor                       Comment
 1.0.1   03.14.2016    Olivier Bourdon              Added MOS 8.0 support
                       (obourdon@mirantis.com)      
                                                    Doc fixes
+------- ------------- ---------------------------- ---------------------
+1.1.0   05.11.2016    Olivier Bourdon              Added MOS 9.0 support
+                      (obourdon@mirantis.com)      
 ======= ============= ============================ =====================
 
