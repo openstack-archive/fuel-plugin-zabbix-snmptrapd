@@ -25,18 +25,6 @@ function download {
     done
 }
 
-download rpm http://mirror.centos.org/centos/6/os/x86_64/Packages/net-snmp-5.5-54.el6.x86_64.rpm \
-             http://mirror.centos.org/centos/6/os/x86_64/Packages/net-snmp-libs-5.5-54.el6.x86_64.rpm \
-             http://mirror.centos.org/centos/6/os/x86_64/Packages/net-snmp-perl-5.5-54.el6.x86_64.rpm \
-             http://mirror.centos.org/centos/6/os/x86_64/Packages/perl-Digest-HMAC-1.01-22.el6.noarch.rpm \
-             http://mirror.centos.org/centos/6/os/x86_64/Packages/perl-Digest-SHA1-2.12-2.el6.x86_64.rpm \
-             http://mirror.centos.org/centos/6/os/x86_64/Packages/perl-IO-stringy-2.110-10.1.el6.noarch.rpm \
-             http://mirror.centos.org/centos/6/os/x86_64/Packages/perl-List-MoreUtils-0.22-10.el6.x86_64.rpm \
-             http://dl.fedoraproject.org/pub/epel/6/x86_64/snmptt-1.4-0.9.beta2.el6.noarch.rpm \
-             http://dl.fedoraproject.org/pub/epel/6/x86_64/perl-Crypt-DES-2.05-9.el6.x86_64.rpm \
-             http://dl.fedoraproject.org/pub/epel/6/x86_64/perl-Config-IniFiles-2.72-2.el6.noarch.rpm \
-             http://dl.fedoraproject.org/pub/epel/6/x86_64/perl-Net-SNMP-5.2.0-4.el6.noarch.rpm
-
 #download snmp module
 mkdir -p "${MODULES}/snmp"
 wget -qO- "${SNMP_TARBALL_URL}" | tar -C "${MODULES}/snmp" --strip-components=1 -xz
