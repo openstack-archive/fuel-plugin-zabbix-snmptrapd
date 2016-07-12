@@ -18,7 +18,8 @@ class plugin_zabbix_snmptrapd {
   include plugin_zabbix_snmptrapd::params
 
   $service_name     = $plugin_zabbix_snmptrapd::params::service_name
-  $package_name     = $plugin_zabbix_snmptrapd::params::package_name
+  $daemon_pkg_name  = $plugin_zabbix_snmptrapd::params::daemon_pkg_name
+  $utils_pkg_name   = $plugin_zabbix_snmptrapd::params::utils_pkg_name
 
   $plugin_settings  = hiera('zabbix_snmptrapd')
 
@@ -41,6 +42,11 @@ class plugin_zabbix_snmptrapd {
     port   => $server_port,
   }
 
+  package { $utils_pkg_name:
+    ensure => 'present',
+    name   => $utils_pkg_name,
+  }
+
   # The following resource overwrites default initscript for snmptrapd.
   # Version provided by the plugin supports namespaces.
   # If there is a need to run snmptrad in a specific namespace,
@@ -51,7 +57,7 @@ class plugin_zabbix_snmptrapd {
     group   => 'root',
     mode    => '0755',
     source  => "puppet:///modules/plugin_zabbix_snmptrapd/initscripts/${service_name}",
-    require => Package[$package_name],
+    require => [Package[$daemon_pkg_name], Package[$utils_pkg_name]],
     notify  => Service[$service_name],
   }
 
