@@ -2,13 +2,17 @@
 set -eux
 
 ROOT="$(dirname `readlink -f $0`)"
+
+. "${ROOT}"/functions.sh
+
+# Puppet manifests
+# Dependency for SNMP
+SNMP_TARBALL_URL="https://forgeapi.puppetlabs.com/v3/files/razorsedge-snmp-3.3.1.tar.gz"
+
 RPM_REPO="${ROOT}"/repositories/centos
 DEB_REPO="${ROOT}"/repositories/ubuntu
 MODULES="${ROOT}"/deployment_scripts/puppet/modules
-SNMP_TARBALL_URL="https://forgeapi.puppetlabs.com/v3/files/razorsedge-snmp-3.3.1.tar.gz"
-mkdir -p $RPM_REPO
-mkdir -p $DEB_REPO
-mkdir -p $MODULES
+mkdir -p $RPM_REPO $DEB_REPO $MODULES/snmp
 
 # Downloads needed RPM or DEB packages
 function download {
@@ -25,7 +29,11 @@ function download {
     done
 }
 
-#download snmp module
-mkdir -p "${MODULES}/snmp"
-wget -qO- "${SNMP_TARBALL_URL}" | tar -C "${MODULES}/snmp" --strip-components=1 -xz
+download deb http://archive.ubuntu.com/ubuntu/pool/universe/n/net-snmp/libsnmp-perl_5.7.2~dfsg-8.1ubuntu3.1_amd64.deb \
+             http://archive.ubuntu.com/ubuntu/pool/main/n/net-snmp/snmpd_5.7.2~dfsg-8.1ubuntu3.1_amd64.deb \
+             http://archive.ubuntu.com/ubuntu/pool/main/n/net-snmp/snmp_5.7.2~dfsg-8.1ubuntu3.1_amd64.deb \
+             http://archive.ubuntu.com/ubuntu/pool/universe/s/snmptt/snmptt_1.4-1_all.deb
 
+
+# Install puppet manifests
+download_puppet_module "snmp" "$SNMP_TARBALL_URL"

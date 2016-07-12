@@ -17,12 +17,14 @@ class plugin_zabbix_snmptrapd::params {
 
   case $::osfamily {
     'Debian': {
-      $service_name = 'snmpd'
-      $package_name = 'snmpd'
+      $service_name     = 'snmpd'
+      $daemon_pkg_name  = 'snmpd'
+      $utils_pkg_name    = 'snmp'
     }
     'RedHat': {
-      $service_name = 'snmptrapd'
-      $package_name = 'net-snmp'
+      $service_name     = 'snmptrapd'
+      $daemon_pkg_name  = 'net-snmp'
+      $utils_pkg_name    = 'snmp'
     }
     default: {
       fail("unsuported osfamily ${::osfamily}, currently Debian and RedHat are the only supported platforms")
