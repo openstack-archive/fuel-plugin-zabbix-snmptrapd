@@ -17,9 +17,9 @@ To install SNMP trap daemon for Zabbix plugin, follow these steps:
    `Fuel Plugins Catalog <https://www.mirantis.com/products/
    openstack-drivers-and-plugins/fuel-plugins/>`_.
 
-#. Copy the plugin on already installed Fuel Master node, ssh can be used for
-   that. If you do not have the Fuel Master node yet, see `Quick Start Guide
-   <https://software.mirantis.com/quick-start/>`_::
+#. Copy the plugin from your local machine to a previously deployed
+   Fuel Master node using ssh. If you do not have the Fuel Master node yet,
+   see `Quick Start Guide <https://software.mirantis.com/quick-start/>`_::
 
     # scp zabbix_snmptrapd-1.1-1.1.0-1.noarch.rpm root@<Fuel_Master_IP>:/tmp
 
@@ -33,7 +33,7 @@ To install SNMP trap daemon for Zabbix plugin, follow these steps:
     # fuel plugins
     id | name                      | version  | package_version
     ---|---------------------------|----------|----------------
-    1  | zabbix_monitoring         | 2.6.0    | 3.0.0
+    1  | zabbix_monitoring         | 2.5.1    | 3.0.0
     2  | zabbix_snmptrapd          | 1.1.0    | 3.0.0
 
 SNMP trap daemon for Zabbix plugin removal
@@ -41,7 +41,7 @@ SNMP trap daemon for Zabbix plugin removal
 
 To uninstall SNMP Trap Daemon for Zabbix plugin, follow these steps:
 
-#. Delete all Environments in which SNMP Trap Daemon for Zabbix plugin has been enabled.
+#. Delete all environments in which SNMP Trap Daemon for Zabbix plugin has been enabled.
 
 #. Uninstall the plugin::
 
@@ -54,4 +54,3 @@ To uninstall SNMP Trap Daemon for Zabbix plugin, follow these steps:
      ---|---------------------------|----------|----------------
      ...
      You can still have other plugins listed here but not zabbix_snmptrapd
-
