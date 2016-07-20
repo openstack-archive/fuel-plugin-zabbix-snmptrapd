@@ -33,7 +33,7 @@ To install SNMP trap daemon for Zabbix plugin, follow these steps:
     # fuel plugins
     id | name                      | version  | package_version
     ---|---------------------------|----------|----------------
-    1  | zabbix_monitoring         | 2.6.0    | 3.0.0
+    1  | zabbix_monitoring         | 2.5.1    | 3.0.0
     2  | zabbix_snmptrapd          | 1.1.0    | 3.0.0
 
 SNMP trap daemon for Zabbix plugin removal
@@ -41,7 +41,7 @@ SNMP trap daemon for Zabbix plugin removal
 
 To uninstall SNMP Trap Daemon for Zabbix plugin, follow these steps:
 
-#. Delete all Environments in which SNMP Trap Daemon for Zabbix plugin has been enabled.
+#. Delete all environments in which SNMP Trap Daemon for Zabbix plugin has been enabled.
 
 #. Uninstall the plugin::
 
