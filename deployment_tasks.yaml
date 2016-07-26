@@ -1,2 +1,22 @@
----
-[]
+- id: zbx-configure-snmptrapd-services
+  type: puppet
+  version: 2.0.0
+  # We use last task of Zabbix plugin deployment as an anchor
+  # to order the post-deployment tasks executed
+  # by this plugin. The dependency chain is:
+  # (Zabbix tasks) -> (Zabbix SNMP Trap Daemon tasks)
+  requires: [post_deployment_start, zbx-agent-services]
+  required_for: [post_deployment_end]
+  role: ['primary-controller', 'controller']
+  # The crontrollers configuration shouldn't start before primary is finished
+  # hence the cross-depends parameter that is required when running in
+  # a task-based deployment mode.
+  cross-depends:
+    - name: zbx-agent-services
+      role: [primary-controller, controller]
+  parameters:
+    puppet_manifest: puppet/manifests/controller.pp
+    puppet_modules: puppet/modules:/etc/puppet/modules
+    timeout: 1200
+  reexecute_on:
+    - deploy_changes
