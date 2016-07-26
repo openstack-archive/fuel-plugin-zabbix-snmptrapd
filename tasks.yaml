@@ -1,7 +1,1 @@
-- role: ['primary-controller', 'controller']
-  stage: post_deployment/8110
-  type: puppet
-  parameters:
-    puppet_manifest: puppet/manifests/controller.pp
-    puppet_modules: puppet/modules:/etc/puppet/modules
-    timeout: 1200
+[]
