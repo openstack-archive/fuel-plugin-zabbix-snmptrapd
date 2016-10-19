@@ -3,7 +3,7 @@ Release notes / Changelog
 
 **1.1.0**
 
-* Compatibility with MOS 9.0
+* Compatibility with MOS 9.0 and MOS 9.1
 
 **1.0.1**
 

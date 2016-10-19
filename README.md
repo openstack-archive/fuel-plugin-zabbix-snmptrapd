@@ -13,10 +13,10 @@ It is a base for additional plugins which adds specific SNMP traps monitoring.
 Requirements
 ------------
 
-| Requirement                      | Version/Comment |
-|:---------------------------------|:----------------|
-| Mirantis OpenStack compatibility | 7.0, 8.0, 9.0   |
-| Zabbix plugin for Fuel           | 2.5.1           |
+| Requirement                      | Version/Comment    |
+|:---------------------------------|:-------------------|
+| Mirantis OpenStack compatibility | 7.0, 8.0, 9.0, 9.1 |
+| Zabbix plugin for Fuel           | 2.5.1              |
 
 Installation Guide
 ==================
