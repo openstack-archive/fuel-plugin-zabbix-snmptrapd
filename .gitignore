@@ -6,4 +6,6 @@ Gemfile.lock
 *.noarch.rpm
 repositories/centos/*.rpm
 repositories/ubuntu/*.deb
+repositories/ubuntu/trusty/*.deb
+repositories/ubuntu/xenial/*.deb
 deployment_scripts/puppet/modules/snmp
