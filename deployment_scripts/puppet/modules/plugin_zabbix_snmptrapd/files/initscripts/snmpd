@@ -60,7 +60,15 @@ TRAPDOPTS="-Lsd -p $TRAPD_PID"
 test -x $SNMPD_BINARY || exit 0
 test -x $TRAPD_BINARY || exit 0
 
+function create_ns_if_not_exists {
+  [ -n "$1" ] || return
+  $IP_BINARY netns pids "$1" 2>/dev/null
+  [ $? -ne 0 ] || return
+  $IP_BINARY netns add "$1"
+}
+
 if [ "x$SNMPDNS" != "x" ]; then
+  create_ns_if_not_exists "$SNMPDNS"
   SNMPDOPTS="netns exec $SNMPDNS $SNMPD_BINARY $SNMPDOPTS"
   SNMPDEXEC=$IP_BINARY
 else
@@ -68,6 +76,7 @@ else
 fi
 
 if [ "x$TRAPDNS" != "x" ]; then
+  create_ns_if_not_exists "$TRAPDNS"
   TRAPDOPTS="netns exec $TRAPDNS $TRAPD_BINARY $TRAPDOPTS"
   TRAPDEXEC=$IP_BINARY
 else

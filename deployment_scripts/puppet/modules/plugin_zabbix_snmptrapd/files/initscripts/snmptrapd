@@ -54,6 +54,10 @@ pidfile=/var/run/snmptrapd.pid
 
 if [ "x$NS" != "x" ]; then
   cmd="/sbin/ip netns exec $NS $binary"
+  /sbin/ip netns pids $NS 2>/dev/null
+  if [ $? -ne 0 ]; then
+    /sbin/ip netns add $NS
+  fi
 else
   cmd=$binary
 fi
