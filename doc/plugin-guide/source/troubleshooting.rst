@@ -51,7 +51,7 @@ Finding the management VIP to use to send SNMP traps
 
 On the Fuel master node, use the primary controller node (here node-3)::
 
-  # ssh -q node-3 ip netns exec haproxy ifconfig b_zbx_vip_mgmt | \
+  # ssh -q node-3 ip netns exec zabbix ifconfig b_zbx_vip_mgmt | \
       grep 'inet addr:' | sed -e 's/[^:]*://' -e 's/ .*//'
   192.168.0.3
 

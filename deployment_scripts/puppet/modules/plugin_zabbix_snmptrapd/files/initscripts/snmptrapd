@@ -41,7 +41,7 @@
 . /etc/init.d/functions
 
 #run service in the following network namespace:
-NS="haproxy"
+NS="zabbix"
 OPTIONS="-Lsd -p /var/run/snmptrapd.pid"
 if [ -e /etc/sysconfig/snmptrapd ]; then
   . /etc/sysconfig/snmptrapd
