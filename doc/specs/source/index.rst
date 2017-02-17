@@ -118,8 +118,8 @@ Work Items
 Dependencies
 ============
 
-* Fuel 7.0, 8.0, 9.0 and 9.1
-* Zabbix plugin for Fuel 2.5.1
+* Fuel 7.0, 8.0, 9.0, 9.1 and 9.2
+* Zabbix plugin for Fuel 2.5.2
 
 Testing
 =======

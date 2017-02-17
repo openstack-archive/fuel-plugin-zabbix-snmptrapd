@@ -1,6 +1,10 @@
 Release notes / Changelog
 =========================
 
+**1.1.1**
+
+* Compatibility with MOS 9.2
+
 **1.1.0**
 
 * Compatibility with MOS 9.0 and MOS 9.1
