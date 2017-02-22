@@ -39,6 +39,7 @@ download_package "$DEB_TRUSTY_REPO" $SNMP_TRUSTY_PACKAGES $COMMON_PACKAGES
 
 SNMP_XENIAL_VERSION="5.7.3+dfsg-1ubuntu4"
 SNMP_XENIAL_PACKAGES="http://archive.ubuntu.com/ubuntu/pool/universe/n/net-snmp/libsnmp-perl_${SNMP_XENIAL_VERSION}_amd64.deb \
+               http://archive.ubuntu.com/ubuntu/pool/universe/n/net-snmp/snmptrapd_${SNMP_XENIAL_VERSION}_amd64.deb \
                http://archive.ubuntu.com/ubuntu/pool/main/n/net-snmp/snmpd_${SNMP_XENIAL_VERSION}_amd64.deb \
                http://archive.ubuntu.com/ubuntu/pool/main/n/net-snmp/snmp_${SNMP_XENIAL_VERSION}_amd64.deb"
 download_package "$DEB_XENIAL_REPO" $SNMP_XENIAL_PACKAGES $COMMON_PACKAGES
