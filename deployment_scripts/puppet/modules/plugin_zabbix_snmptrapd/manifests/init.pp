@@ -20,6 +20,7 @@ class plugin_zabbix_snmptrapd {
   $service_name     = $plugin_zabbix_snmptrapd::params::service_name
   $daemon_pkg_name  = $plugin_zabbix_snmptrapd::params::daemon_pkg_name
   $utils_pkg_name   = $plugin_zabbix_snmptrapd::params::utils_pkg_name
+  $trapd_pkg_name   = $plugin_zabbix_snmptrapd::params::trapd_pkg_name
 
   $plugin_settings  = hiera('zabbix_snmptrapd')
 
@@ -45,6 +46,15 @@ class plugin_zabbix_snmptrapd {
   package { $utils_pkg_name:
     ensure => 'present',
     name   => $utils_pkg_name,
+  }
+
+  # The following is true on Xenial based systems (MOS >= 10.0)
+  if $trapd_pkg_name {
+    package { $trapd_pkg_name:
+      ensure => 'present',
+      name   => $trapd_pkg_name,
+    }
+    Package[$trapd_pkg_name] -> Package[$daemon_pkg_name]
   }
 
   # The following resource overwrites default initscript for snmptrapd.

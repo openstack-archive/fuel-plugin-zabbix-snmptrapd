@@ -15,16 +15,24 @@
 #
 class plugin_zabbix_snmptrapd::params {
 
+  $fuel_version = 0 + hiera('fuel_version')
+
   case $::osfamily {
     'Debian': {
       $service_name     = 'snmpd'
       $daemon_pkg_name  = 'snmpd'
-      $utils_pkg_name    = 'snmp'
+      $utils_pkg_name   = 'snmp'
+      if $fuel_version >= 10.0 {
+        $trapd_pkg_name   = 'snmptrapd'
+      } else {
+        $trapd_pkg_name   = undef
+      }
     }
     'RedHat': {
       $service_name     = 'snmptrapd'
       $daemon_pkg_name  = 'net-snmp'
-      $utils_pkg_name    = 'snmp'
+      $utils_pkg_name   = 'snmp'
+      $trapd_pkg_name   = undef
     }
     default: {
       fail("unsuported osfamily ${::osfamily}, currently Debian and RedHat are the only supported platforms")
