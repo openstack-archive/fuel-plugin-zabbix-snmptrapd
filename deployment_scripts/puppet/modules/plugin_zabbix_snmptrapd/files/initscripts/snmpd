@@ -62,7 +62,7 @@ test -x $TRAPD_BINARY || exit 0
 
 create_ns_if_not_exists() {
   [ -n "$1" ] || return 0
-  exists=`$IP_BINARY netns | egrep "^$1\$" | wc -l`
+  exists=`$IP_BINARY netns | egrep "^$1\$|^$1 " | wc -l`
   [ $exists -le 0 ] || return 0
   $IP_BINARY netns add "$1"
 }

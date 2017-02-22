@@ -54,7 +54,7 @@ pidfile=/var/run/snmptrapd.pid
 
 if [ "x$NS" != "x" ]; then
   cmd="/sbin/ip netns exec $NS $binary"
-  exists=`$IP_BINARY netns | egrep "^$1\$" | wc -l`
+  exists=`$IP_BINARY netns | egrep "^$1\$|^$1 " | wc -l`
   if [ $exists -le 0 ]; then
     /sbin/ip netns add $NS
   fi
